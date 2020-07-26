@@ -1,6 +1,14 @@
 import { createStore, combineReducers } from "redux";
-import { reducer as AppReducer } from "../reducers";
+import { reducer, IUserState } from "../reducers";
+
+export interface IAppState {
+  app: IUserState;
+}
 
 const reducers = combineReducers({
-  app: AppReducer,
+  app: reducer,
 });
+
+const store = createStore(reducers);
+
+export default store;
